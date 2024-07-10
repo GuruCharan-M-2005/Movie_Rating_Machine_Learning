@@ -29,7 +29,6 @@ le=linear_model.LinearRegression()
 model=le.fit(xtrain,ytrain)
 
 st.title('Movie Rating')
-a=st.number_input('Certificate',min_value=0)
 b=st.number_input('Runtime',min_value=0)
 c=st.number_input('Meta_score',min_value=0)
 d=st.number_input('No_of_Votes',min_value=0)
@@ -37,7 +36,6 @@ e=st.number_input('Gross',min_value=0)
 
 if st.button('Predict'):
     df=pd.DataFrame({
-        'Certificate':[a],
         'Runtime':[b],
         'Meta_score':[c],
         'No_of_Votes':[d],
