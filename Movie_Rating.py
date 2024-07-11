@@ -12,13 +12,11 @@ warnings.filterwarnings(category=UserWarning,action='ignore')
 data=pd.read_excel('Movie_Rating.xlsx','movie_rating')
 df=pd.DataFrame(data)
 
-df=df.drop(['Genre','Poster_Link','Series_Title','Released_Year','Overview','Director','Star1','Star2','Star3','Star4'],axis='columns')
+df=df.drop(['Certificate','Genre','Poster_Link','Series_Title','Released_Year','Overview','Director','Star1','Star2','Star3','Star4'],axis='columns')
 df.Gross=df.Gross.fillna(np.mean(df.Gross))
 le=LabelEncoder()
 mlb = MultiLabelBinarizer()
-
 df['Runtime'] = df['Runtime'].astype(str).str.replace(' min', '').astype(int)
-df['Certificate'] = le.fit_transform(df['Certificate'].astype(str))
 
 x=df.drop(['IMDB_Rating'],axis='columns')
 x=x.fillna(0)
