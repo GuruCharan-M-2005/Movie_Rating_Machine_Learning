@@ -41,5 +41,6 @@ if st.button('Predict'):
         'No_of_Votes':[d],
         'Gross':[e]
     })
-    st.write(model.predict(df))
+    prediction = model.predict(df)
+    st.write(f'The predicted IMDB rating is: {prediction[0]:.2f}')
 				
